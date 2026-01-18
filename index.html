@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <title>קישורים מהירים</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:#f5f7fa;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+    }
+
+    .card{
+      background:#ffffff;
+      padding:24px;
+      border-radius:12px;
+      width:100%;
+      max-width:420px;
+      box-shadow:0 10px 30px rgba(0,0,0,.1);
+      text-align:center;
+    }
+
+    h1{
+      margin:0 0 20px 0;
+      font-size:22px;
+    }
+
+    .btn{
+      display:block;
+      width:100%;
+      padding:14px;
+      margin:10px 0;
+      font-size:16px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      background:#2563eb;
+      color:#fff;
+    }
+
+    .btn.copy{
+      background:#374151;
+      font-size:14px;
+      margin-top:-6px;
+    }
+
+    .btn:hover{
+      opacity:.9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>קישורים</h1>
+
+    <!-- קבלן -->
+    <button class="btn" onclick="go('https://YOUR-CONTRACTOR-LINK')">
+      קישור לתיאום מול קבלן
+    </button>
+    <button class="btn copy" onclick="copyLink('https://YOUR-CONTRACTOR-LINK')">
+      העתק קישור
+    </button>
+
+    <!-- דוח חשבוניות -->
+    <button class="btn" onclick="go('https://YOUR-INVOICES-REPORT')">
+      דוח חשבוניות
+    </button>
+
+    <!-- דוח תקלות -->
+    <button class="btn" onclick="go('https://YOUR-ISSUES-REPORT')">
+      דוח תקלות
+    </button>
+
+    <!-- וואצאפ -->
+    <button class="btn" onclick="go('https://YOUR-WHATSAPP-BOT')">
+      בוט ווצאפ
+    </button>
+    <button class="btn copy" onclick="copyLink('https://YOUR-WHATSAPP-BOT')">
+      העתק קישור
+    </button>
+  </div>
+
+  <script>
+    function go(url){
+      window.location.href = url;
+    }
+
+    function copyLink(url){
+      navigator.clipboard.writeText(url)
+        .then(() => alert('הקישור הועתק'))
+        .catch(() => alert('שגיאה בהעתקה'));
+    }
+  </script>
+</body>
+</html>
