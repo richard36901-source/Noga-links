@@ -105,13 +105,35 @@
       padding:0 16px;
       font-size:15px;
       font-weight:700;
-      text-align:right;
       transition:transform .1s, box-shadow .15s;
+      text-align:initial; /* we control alignment inside */
     }
 
     .main-btn:hover{
       transform:translateY(-1px);
       box-shadow:0 12px 26px rgba(37,99,235,.35);
+    }
+
+    /* FIX: split Hebrew right and English left cleanly */
+    .btn-label{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .btn-he{
+      direction:rtl;
+      unicode-bidi:isolate;
+      text-align:right;
+      white-space:nowrap;
+    }
+    .btn-en{
+      direction:ltr;
+      unicode-bidi:isolate;
+      text-align:left;
+      white-space:nowrap;
+      opacity:.95;
     }
 
     .copy-btn{
@@ -186,7 +208,10 @@
 
           <div class="row">
             <button class="main-btn" onclick="go('https://calendly.com/noga-intelligence/30min')">
-              קישור לתיאום מול קבלן - Link to schedule
+              <span class="btn-label">
+                <span class="btn-he">קישור לתיאום מול קבלן</span>
+                <span class="btn-en">Link to schedule</span>
+              </span>
             </button>
             <button class="copy-btn" onclick="copyLink('https://calendly.com/noga-intelligence/30min')">
               <span class="copy-icon"></span>
@@ -195,21 +220,30 @@
 
           <div class="row">
             <button class="main-btn" onclick="go('https://docs.google.com/spreadsheets/d/1dRCgVzSFARFIa_ii5WDZW9UNT_GhYLhaqBCpLH2ddNE/edit?gid=0#gid=0')">
-              דוח חשבוניות - Invoices Report
+              <span class="btn-label">
+                <span class="btn-he">דוח חשבוניות</span>
+                <span class="btn-en">Invoices Report</span>
+              </span>
             </button>
             <button class="copy-btn hidden"><span class="copy-icon"></span></button>
           </div>
 
           <div class="row">
             <button class="main-btn" onclick="go('https://docs.google.com/spreadsheets/d/1dRCgVzSFARFIa_ii5WDZW9UNT_GhYLhaqBCpLH2ddNE/edit?gid=134922561#gid=134922561')">
-              דוח תקלות - Tickets Report
+              <span class="btn-label">
+                <span class="btn-he">דוח תקלות</span>
+                <span class="btn-en">Tickets Report</span>
+              </span>
             </button>
             <button class="copy-btn hidden"><span class="copy-icon"></span></button>
           </div>
 
           <div class="row">
             <button class="main-btn" onclick="go('https://wa.me/972504627992?text=%D7%94%D7%AA%D7%97%D7%9C%D7%94')">
-              בוט ווצאפ - Whatsapp Bot
+              <span class="btn-label">
+                <span class="btn-he">בוט ווצאפ</span>
+                <span class="btn-en">Whatsapp Bot</span>
+              </span>
             </button>
             <button class="copy-btn" onclick="copyLink('https://wa.me/972504627992?text=%D7%94%D7%AA%D7%97%D7%9C%D7%94')">
               <span class="copy-icon"></span>
